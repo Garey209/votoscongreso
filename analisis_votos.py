@@ -1,10 +1,13 @@
-pip install pandas numpy wnominate
 import pandas as pd
 import numpy as np
-from wnominate import Wnominate
+
+# Simular Wnominate (dummy function)
+class Wnominate:
+    def fit(self, votos):
+        return votos.mean(axis=0)  # Solo para ilustración, no es Wnominate real
 
 # Leer el archivo de Excel
-file_path = '/mnt/data/Votos.xlsx'
+file_path = 'Votos.xlsx'
 df = pd.read_excel(file_path)
 
 # Mapear los valores de los tipos de votos
@@ -26,9 +29,10 @@ df.fillna(0, inplace=True)
 diputados = df.iloc[:, 0]
 votos = df.iloc[:, 1:]
 
-# Inicializar y ajustar el modelo W-NOMINATE
+# Inicializar y ajustar el modelo W-NOMINATE (simulado)
 w_nom = Wnominate()
 resultados = w_nom.fit(votos)
 
 # Imprimir los resultados
 print(resultados)
+
